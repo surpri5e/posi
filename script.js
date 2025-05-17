@@ -1,3 +1,4 @@
+
   const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('nav a');
 
@@ -163,6 +164,7 @@ function loadPosts() {
 
   posts.forEach((post, index) => {
     const postDiv = document.createElement('div');
+    postDiv.classList.add('cat-post');
     postDiv.style.border = '1px solid #ccc';
     postDiv.style.padding = '12px';
     postDiv.style.marginBottom = '12px';
@@ -170,16 +172,17 @@ function loadPosts() {
     postDiv.style.background = '#fff8f0';
 
     postDiv.innerHTML = `
-      <strong>${post.catName}</strong> (Last seen: ${post.lastSeenLocation})<br>
-      Description: ${post.catDescription}<br>
-      Fur Parent: ${post.ownerName}<br>
-      Phone: ${post.contactPhone}<br>
-      Email: ${post.contactEmail}<br>
-      <small>Posted: ${new Date(post.timestamp).toLocaleString()}</small><br>
-      <button data-index="${index}" class="deletePostBtn" style="margin-top:8px; background:#d9534f; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Delete Post</button>
-    `;
+  <strong>${post.catName}</strong> (Last seen: ${post.lastSeenLocation})<br>
+${post.photo ? `<img src="${post.photo}" alt="Photo of ${post.catName}" style="width: 180px; height: auto; float: right; margin-left: 12px; border-radius:6px; margin-bottom:10px;" />` : ''}
+  Description: ${post.catDescription}<br>
+  Fur Parent: ${post.ownerName}<br>
+  Phone: ${post.contactPhone}<br>
+  Email: ${post.contactEmail}<br>
+  <small>Posted: ${new Date(post.timestamp).toLocaleString()}</small><br>
+  <button data-index="${index}" class="deletePostBtn" style="margin-top:8px; background:#d9534f; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Delete Post</button>
+`;
 
-    postsContainer.appendChild(postDiv);
+postsContainer.appendChild(postDiv);
   });
 
   // Add delete button listeners
@@ -198,7 +201,7 @@ function deletePost(index) {
   loadPosts();
 }
 
-missingCatForm.addEventListener('submit', e => {
+missingCatForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const catName = document.getElementById('catName').value.trim();
@@ -207,37 +210,41 @@ missingCatForm.addEventListener('submit', e => {
   const ownerName = document.getElementById('ownerName').value.trim();
   const contactPhone = document.getElementById('contactPhone').value.trim();
   const contactEmail = document.getElementById('contactEmail').value.trim();
+  const photoInput = document.getElementById('catPhoto');
+  const photoFile = photoInput.files[0];
 
-  if (!catName || !catDescription || !lastSeenLocation || !ownerName || !contactPhone || !contactEmail) {
-    alert('Please fill in all required fields.');
+    if (!photoFile) {
+    alert("Please upload a photo of your cat.");
     return;
   }
 
-  const postData = {
+  const reader = new FileReader();
+  reader.onload = function (event) {
+    const photoDataURL = event.target.result;
+
+  const post = {
     catName,
     catDescription,
     lastSeenLocation,
     ownerName,
     contactPhone,
     contactEmail,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    photo: photoDataURL
   };
 
-  const existingPosts = JSON.parse(localStorage.getItem('missingCatPosts') || '[]');
-  existingPosts.push(postData);
-  localStorage.setItem('missingCatPosts', JSON.stringify(existingPosts));
+  const posts = JSON.parse(localStorage.getItem('missingCatPosts') || '[]');
+    posts.push(post);
+    localStorage.setItem('missingCatPosts', JSON.stringify(posts));
 
-  submissionMessage.style.display = 'block';
-  posterMessage.style.display = 'none';
-  setTimeout(() => submissionMessage.style.display = 'none', 4000);
+    submissionMessage.style.display = 'block';
+    setTimeout(() => submissionMessage.style.display = 'none', 4000);
+    missingCatForm.reset();
+    loadPosts(); // Refresh UI
+  };
 
-  missingCatForm.reset();
-
-  loadPosts(); // refresh posts after adding new one
+  reader.readAsDataURL(photoFile); // Convert file to base64
 });
-
-// Call once at page load to show existing posts
-loadPosts();
 
 // Poster generation code (same as before)...
 generatePosterBtn.addEventListener('click', () => {
