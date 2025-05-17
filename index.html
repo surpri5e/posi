@@ -1,175 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>POSA</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-  :root {
-    --brand-color: #d77700;
-    --brand-dark: #442a1f;
-    --brand-light: #fff3e6;
-    --bg-gradient: linear-gradient(135deg, #fceabb, #f8b500);
-    --shadow-color: rgba(68, 42, 31, 0.2);
-  }
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: var(--bg-gradient);
-    color: var(--brand-dark);
-    scroll-behavior: smooth;
-  }
-  header {
-    position: sticky;
-    top: 0;
-    background: var(--brand-dark);
-    color: #fff;
-    padding: 1.3rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-    box-shadow: 0 4px 8px var(--shadow-color);
-  }
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.9rem;
-    letter-spacing: 2px;
-    user-select: none;
-  }
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 1.3rem;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
-  }
-  nav a:hover,
-  nav a.active {
-    color: var(--brand-color);
-    border-bottom: 2px solid var(--brand-color);
-  }
-  main {
-    max-width: 1000px;
-    margin: 2rem auto 4rem;
-    background: var(--brand-light);
-    border-radius: 12px;
-    padding: 2rem 3rem;
-    box-shadow: 0 12px 25px var(--shadow-color);
-  }
-  section {
-    margin-bottom: 3rem;
-  }
-  h2 {
-    color: var(--brand-dark);
-    border-bottom: 3px solid var(--brand-color);
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    user-select: none;
-  }
-  p, li {
-    font-weight: 300;
-    line-height: 1.5;
-    color: #4a3b27;
-  }
-  ul, ol {
-    padding-left: 1.5rem;
-  }
-  button, input, select, textarea {
-    border-radius: 6px;
-    border: 1.5px solid #d7a95c;
-    padding: 0.5rem 0.8rem;
-    font-family: inherit;
-    font-size: 1rem;
-    outline-offset: 2px;
-    transition: border-color 0.3s ease;
-  }
-  button:hover, input:focus, select:focus, textarea:focus {
-    border-color: var(--brand-color);
-  }
-  button {
-    background: var(--brand-color);
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .section-description {
-    margin-bottom: 1.2rem;
-    font-style: italic;
-    color: var(--brand-dark);
-  }
-  form > div {
-    margin-bottom: 1rem;
-  }
-  label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.35rem;
-  }
-  .submission-message {
-    color: green;
-    margin-top: 0.6rem;
-    font-weight: 600;
-  }
-  /* Tips list */
-  .tips-list {
-    max-height: 180px;
-    overflow-y: auto;
-    border: 1.5px solid #d7a95c;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    background: #fff8e1;
-  }
-  .tips-list li {
-    margin-bottom: 0.6rem;
-  }
-  /* Emergency contacts */
-  .contact-list {
-    max-height: 180px;
-    overflow-y: auto;
-    border: 1.5px solid #d7a95c;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    background: #fff8e1;
-    margin: 0 auto;
-  }
-  .contact-list li {
-    margin-bottom: 0.9rem;
-  }
-  .contact-list strong {
-    color: var(--brand-color);
-  }
-  /* Responsive tweaks */
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.6rem;
-    }
-    nav a {
-      margin-left: 0;
-      margin-right: 1rem;
-    }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POSA</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
 <header>
-  <h1>POSA</h1>
+  <div class="header-left">
+    <a href="#" class="logo-link">
+      <img src="whiskers.png" alt="Logo" />
+      <h1>POSA</h1>
+    </a>
+  </div>
   <nav aria-label="Primary">
-    <a href="#lost" class="nav-link">LOST</a>
-    <a href="#emergency" class="nav-link">VET</a>
-    <a href="#cat-tips" class="nav-link">CAT CARE</a>
-    <a href="#profiles" class="nav-link">USER PROFILE</a>
-  </nav>
+  <a href="#" class="nav-link" data-target="lost">LOST</a>
+  <a href="#" class="nav-link" data-target="emergency">VET</a>
+  <a href="#" class="nav-link" data-target="cat-tips">CAT CARE</a>
+  <a href="#" class="nav-link" data-target="profiles">USER PROFILE</a>
+</nav>
 </header>
 <main>
   <section id="lost" tabindex="0">
@@ -207,29 +58,92 @@
     </form>
   </section>
   <section id="emergency" tabindex="0">
+  <div class="section-container">
     <h2>Veterinary Contacts</h2>
     <p class="section-description">Find urgent care nearby for your cats.</p>
     <ul class="contact-list" aria-label="Emergency veterinary contacts">
-      <li><strong>Primovet Advanced Animal Healthcare Clinic</strong> - 0906 530 1998 - Unit 8 Arcade Commercial Complex, 4102 Molino Rd, Bacoor, 4102 Cavite</li>
-      <li><strong>Pet Family Animal Clinic and Grooming Center</strong> - (046) 418 6235 - Buhay na Tubig Highway, 90d Buhay na Tubig Rd, B4 L6-B Greenvillas 2, Imus, 4103 Cavite</li>
-      <li><strong>Jamir Veterinary Clinic</strong> - 0917 133 0774 - Jamir Veterinary Clinic, Kawit, 4104 Cavite</li>
-      <li><strong>Petstreet Veterinary Clinic and Canine Distemper Center</strong> - 0917 132 2459 - 9011 LB, magdalo brgy. potol, EPZA Diversion Rd, Kawit, 4104 Cavite</li>
-      <li><strong>Pet Protection Veterinary Clinic</strong> - 0961-795-8715 - Blk 18 A Lot 7 Cluster St. Luzviminda, 1, Dasmariñas, 4114 Cavite</li>
-      <li><strong>Serbisyo Beterinaryo Animal Hospital Dasmariñas</strong> - 0917 138 5852 - 196 R-2, Dasmariñas, Cavite</li>
-      <li><strong>Petology Emergency Animal Hospital Inc.</strong> - 0915 574 7467 - Unit 21-25, Amethyst Building, Metrogate Estate, Aguinaldo Hwy, Dasmariñas, 4114 Cavite</li>
+      <li>
+  🏥 <strong>Primovet Advanced Animal Healthcare Clinic</strong><br>
+  📞 0906 530 1998<br>
+  📍 Unit 8 Arcade Commercial Complex, Molino Rd, Bacoor, Cavite
+</li>
+      <li>
+      🏥 <strong>Pet Family Animal Clinic and Grooming Center</strong><br>
+      📞 (046) 418 6235<br>
+      📍Buhay na Tubig Highway, 90d Buhay na Tubig Rd, B4 L6-B Greenvillas 2 Imus, 4103 Cavite
+</li>
+      <li>
+      🏥<strong>Jamir Veterinary Clinic</strong><br>
+      📞0917 133 0774<br>
+      📍Jamir Veterinary Clinic, Kawit, 4104 Cavite
+</li>
+      <li>
+      🏥<strong>Petstreet Veterinary Clinic and Canine Distemper Center</strong><br>
+      📞0917 132 2459<br>
+      📍9011 LB, magdalo brgy. potol, EPZA Diversion Rd, Kawit, 4104 Cavite
+</li>
+      <li>
+      🏥<strong>Pet Protection Veterinary Clinic</strong><br>
+      📞0961-795-8715<br>
+      📍Blk 18 A Lot 7 Cluster St. Luzviminda, 1, Dasmariñas, 4114 Cavite
+</li>
+      <li>
+      🏥<strong>Serbisyo Beterinaryo Animal Hospital Dasmariñas</strong><br>
+      📞0917 138 5852<br>
+      📍196 R-2, Dasmariñas, Cavite
+</li>
+      <li>
+      🏥<strong>Kings Road Veterinary Clinic- The District Imus Mall</strong><br>
+      📞0998 549 4957<br>
+      📍Toys"R"Us - The District Imus, Imus, Cavite
+</li>
+      <li>
+      🏥<strong>Petology Emergency Animal Hospital Inc.</strong><br>
+      📞0915 574 7467<br>
+      📍Unit 21-25, Amethyst Building, Metrogate Estate, Aguinaldo Hwy, Dasmariñas, 4114 Cavite
+</li>
+      <li>
+      🏥<strong>Oikos Animal Clinic</strong><br>
+      📞(046) 875 4366<br>
+      📍Aguinaldo Hwy, Imus, Cavite
+</li>
+       <li>
+      🏥<strong>VetSynergy Animal Care</strong><br>
+      📞0915 628 2620<br>
+      📍Corner of Daang Hari, Pasong Buaya, 2, Imus, 4103 Cavite
+</li>
+       <li>
+      🏥<strong>Vet Ridge Animal Clinic</strong><br>
+      📞(0917 706 3987<br>
+      📍Buhay na Tubig Rd, Imus, 4103 Cavite
+</li>
+       <li>
+      🏥<strong>Animal Doctors</strong><br>
+      📞0917 864 4564<br>
+      📍Block 1, Bahayang Pagasa Subdivision, Lot 1 Avenida Street, Molino III, Bacoor, Cavite
+</li>
     </ul>
+  </div>
   </section>
   <section id="cat-tips" tabindex="0">
-    <h2>Community Cat Care Tips &amp; Advice</h2>
-    <p class="section-description">Helpful tips and advice from the community to keep your fur babies happy and healthy.</p>
+  <div class="section-container">
+    <h2>Cat Care Tips &amp; Advice</h2>
+    <p class="section-description">Helpful tips and advice to keep your fur babies happy and healthy.</p>
     <ul class="tips-list" aria-label="Cat care tips list">
       <li>Regular grooming reduces shedding and hairballs.</li>
-      <li>Provide fresh water daily to keep your cat hydrated.</li>
+      <li>Provide fresh water 24/7 to keep your cat hydrated.</li>
+      <li>Train your cat to use a scratching post</li>
       <li>Use interactive toys to keep your cat mentally stimulated.</li>
       <li>Feed a balanced diet specific to your cat’s age and health.</li>
+      <li>Consider spaying or neutering your cat</li>
+      <li>Make sure your cat always has a place to potty</li>
+      <li>Keep the litter box clean</li>
+      <li>Choose a cat-friendly vet</li>
       <li>Schedule regular vet checkups to catch health issues early.</li>
       <li>Keep your cat indoors or supervise outdoor time for safety.</li>
+      <li>Use a cat carrier in the car</li>
     </ul>
+    </div>
   </section>
   <section id="profiles" tabindex="0">
     <h2>User Profile</h2>
@@ -311,357 +225,5 @@
 <footer role="contentinfo" aria-label="Page footer">
   &copy; 2025 POSA &mdash; For all the cat lovers.
 </footer>
-<script>
-  // Navigation active link highlight on scroll
-  const sections = document.querySelectorAll('main section');
-  const navLinks = document.querySelectorAll('nav a');
-
-  function throttle(fn, wait) {
-    let time = Date.now();
-    return function() {
-      if ((time + wait - Date.now()) < 0) {
-        fn();
-        time = Date.now();
-      }
-    }
-  }
-
-  function onScroll() {
-    const scrollPos = window.scrollY + window.innerHeight / 3;
-    let currentSectionId = sections[0].id;
-
-    for (const section of sections) {
-      if (scrollPos >= section.offsetTop) {
-        currentSectionId = section.id;
-      }
-    }
-
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === '#' + currentSectionId) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', throttle(onScroll, 100));
-  window.addEventListener('DOMContentLoaded', onScroll);
-
-  // Profile form dynamic breed selectors for multiple fur babies
-  const numFurBabiesInput = document.getElementById('numFurBabies');
-  const additionalBreedsContainer = document.getElementById('additionalBreedsContainer');
-
-  function createBreedDropdown(index) {
-    const div = document.createElement('div');
-    div.className = 'additional-breed';
-
-    const label = document.createElement('label');
-    label.setAttribute('for', 'catBreed' + index);
-    label.textContent = `Fur Baby #${index} Breed:`;
-
-    const select = document.createElement('select');
-    select.id = 'catBreed' + index;
-    select.name = 'catBreed' + index;
-    select.required = true;
-
-    const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.disabled = true;
-    defaultOption.selected = true;
-    defaultOption.textContent = 'Select breed';
-    select.appendChild(defaultOption);
-
-    const breeds = [
-      "Abyssinian",
-      "American Bobtail",
-      "American Curl",
-      "American Shorthair",
-      "American Wirehair",
-      "Balinese",
-      "Bengal",
-      "Birman",
-      "Bombay",
-      "British Shorthair",
-      "Burmese",
-      "Burmilla",
-      "Chartreux",
-      "Chausie",
-      "Cornish Rex",
-      "Devon Rex",
-      "Egyptian Mau",
-      "European Burmese",
-      "Exotic Shorthair",
-      "Havana Brown",
-      "Himalayan",
-      "Japanese Bobtail",
-      "Korat",
-      "LaPerm",
-      "Maine Coon",
-      "Manx",
-      "Norwegian Forest",
-      "Ocicat",
-      "Oriental",
-      "Persian",
-      "Ragdoll",
-      "Russian Blue",
-      "Scottish Fold",
-      "Siberian",
-      "Singapura",
-      "Snowshoe",
-      "Somali",
-      "Sphynx",
-      "Tonkinese",
-      "Turkish Angora",
-      "Turkish Van"
-    ];
-
-    for (const breed of breeds) {
-      const option = document.createElement('option');
-      option.value = breed;
-      option.textContent = breed;
-      select.appendChild(option);
-    }
-
-    div.appendChild(label);
-    div.appendChild(select);
-    return div;
-  }
-
-  function updateBreedSelectors() {
-    const number = parseInt(numFurBabiesInput.value, 10);
-    additionalBreedsContainer.innerHTML = '';
-
-    if (isNaN(number) || number < 1) {
-      numFurBabiesInput.value = 1;
-      return;
-    }
-
-    for (let i = 2; i <= number; i++) {
-      const breedDropdown = createBreedDropdown(i);
-      additionalBreedsContainer.appendChild(breedDropdown);
-    }
-  }
-
-  numFurBabiesInput.addEventListener('change', updateBreedSelectors);
-  // Initialize on page load
-  window.addEventListener('DOMContentLoaded', updateBreedSelectors);
-
-  // Profile form localStorage handling
-  const profileForm = document.getElementById('profileForm');
-  const profileSavedMsg = document.getElementById('profileSavedMsg');
-  profileForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const userName = document.getElementById('userName').value.trim();
-    const catName = document.getElementById('profileCatName').value.trim();
-    const catBreed1 = document.getElementById('catBreed').value;
-
-    if (!userName || !catName) {
-      alert('Please fill in at least your name and first cat\'s name.');
-      return;
-    }
-    if (!catBreed1) {
-      alert('Please select a breed for fur baby #1.');
-      return;
-    }
-
-    const numFurBabies = parseInt(numFurBabiesInput.value, 10);
-    const catDescriptions = document.getElementById('catDescriptionProfile').value.trim();
-
-    const breeds = [catBreed1];
-    for (let i = 2; i <= numFurBabies; i++) {
-      const select = document.getElementById('catBreed' + i);
-      if (!select || !select.value) {
-        alert(`Please select a breed for fur baby #${i}.`);
-        return;
-      }
-      breeds.push(select.value);
-    }
-
-    const profile = {
-      userName,
-      catNames: [catName], // Currently only one name input; can be extended if desired
-      breeds,
-      catAge: document.getElementById('catAge').value.trim(),
-      catDescription: catDescriptions
-    };
-    localStorage.setItem('catConnectProfile', JSON.stringify(profile));
-    profileSavedMsg.style.display = 'block';
-    setTimeout(() => profileSavedMsg.style.display = 'none', 4000);
-    profileForm.reset();
-    updateBreedSelectors();
-  });
-
-  // Missing Cat form and poster generation code unchanged from previous version but omitted here for brevity...
-  // You can append those unchanged parts from the last version as needed.
-
-const missingCatForm = document.getElementById('missingCatForm');
-const submissionMessage = document.getElementById('submissionMessage');
-const posterMessage = document.getElementById('posterMessage');
-const generatePosterBtn = document.getElementById('generatePosterBtn');
-const postsContainer = document.getElementById('postsContainer');
-
-function loadPosts() {
-  postsContainer.innerHTML = ''; // Clear current list
-  const posts = JSON.parse(localStorage.getItem('missingCatPosts') || '[]');
-
-  if (posts.length === 0) {
-    postsContainer.innerHTML = '<p>No missing cats posted yet.</p>';
-    return;
-  }
-
-  posts.forEach((post, index) => {
-    const postDiv = document.createElement('div');
-    postDiv.style.border = '1px solid #ccc';
-    postDiv.style.padding = '12px';
-    postDiv.style.marginBottom = '12px';
-    postDiv.style.borderRadius = '8px';
-    postDiv.style.background = '#fff8f0';
-
-    postDiv.innerHTML = `
-      <strong>${post.catName}</strong> (Last seen: ${post.lastSeenLocation})<br>
-      Description: ${post.catDescription}<br>
-      Fur Parent: ${post.ownerName}<br>
-      Phone: ${post.contactPhone}<br>
-      Email: ${post.contactEmail}<br>
-      <small>Posted: ${new Date(post.timestamp).toLocaleString()}</small><br>
-      <button data-index="${index}" class="deletePostBtn" style="margin-top:8px; background:#d9534f; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Delete Post</button>
-    `;
-
-    postsContainer.appendChild(postDiv);
-  });
-
-  // Add delete button listeners
-  document.querySelectorAll('.deletePostBtn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const idx = parseInt(e.target.getAttribute('data-index'));
-      deletePost(idx);
-    });
-  });
-}
-
-function deletePost(index) {
-  const posts = JSON.parse(localStorage.getItem('missingCatPosts') || '[]');
-  posts.splice(index, 1);  // Remove the selected post
-  localStorage.setItem('missingCatPosts', JSON.stringify(posts));
-  loadPosts();
-}
-
-missingCatForm.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const catName = document.getElementById('catName').value.trim();
-  const catDescription = document.getElementById('catDescription').value.trim();
-  const lastSeenLocation = document.getElementById('lastSeenLocation').value.trim();
-  const ownerName = document.getElementById('ownerName').value.trim();
-  const contactPhone = document.getElementById('contactPhone').value.trim();
-  const contactEmail = document.getElementById('contactEmail').value.trim();
-
-  if (!catName || !catDescription || !lastSeenLocation || !ownerName || !contactPhone || !contactEmail) {
-    alert('Please fill in all required fields.');
-    return;
-  }
-
-  const postData = {
-    catName,
-    catDescription,
-    lastSeenLocation,
-    ownerName,
-    contactPhone,
-    contactEmail,
-    timestamp: new Date().toISOString()
-  };
-
-  const existingPosts = JSON.parse(localStorage.getItem('missingCatPosts') || '[]');
-  existingPosts.push(postData);
-  localStorage.setItem('missingCatPosts', JSON.stringify(existingPosts));
-
-  submissionMessage.style.display = 'block';
-  posterMessage.style.display = 'none';
-  setTimeout(() => submissionMessage.style.display = 'none', 4000);
-
-  missingCatForm.reset();
-
-  loadPosts(); // refresh posts after adding new one
-});
-
-// Call once at page load to show existing posts
-loadPosts();
-
-// Poster generation code (same as before)...
-generatePosterBtn.addEventListener('click', () => {
-  const catName = document.getElementById('catName').value.trim();
-  const catDescription = document.getElementById('catDescription').value.trim();
-  const lastSeenLocation = document.getElementById('lastSeenLocation').value.trim();
-  const ownerName = document.getElementById('ownerName').value.trim();
-  const contactPhone = document.getElementById('contactPhone').value.trim();
-  const contactEmail = document.getElementById('contactEmail').value.trim();
-
-  if (!catName || !catDescription || !lastSeenLocation || !ownerName || !contactPhone || !contactEmail) {
-    alert('Please fill in all required fields before generating the poster.');
-    return;
-  }
-
-  const canvas = document.createElement('canvas');
-  canvas.width = 600;
-  canvas.height = 800;
-  const ctx = canvas.getContext('2d');
-
-  ctx.fillStyle = '#fff3e6';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#d77700';
-  ctx.font = 'bold 36px Poppins, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('MISSING CAT', canvas.width / 2, 60);
-
-  ctx.fillStyle = '#442a1f';
-  ctx.font = 'bold 28px Poppins, sans-serif';
-  ctx.fillText(catName, canvas.width / 2, 120);
-
-  ctx.fillStyle = '#4a3b27';
-  ctx.textAlign = 'left';
-  wrapText(ctx, `Description: ${catDescription}`, 40, 180, 520, 24);
-  wrapText(ctx, `Last Seen: ${lastSeenLocation}`, 40, 260, 520, 24);
-  wrapText(ctx, `Fur Parent: ${ownerName}`, 40, 340, 520, 24);
-  wrapText(ctx, `Phone: ${contactPhone}`, 40, 380, 520, 24);
-  wrapText(ctx, `Email: ${contactEmail}`, 40, 420, 520, 24);
-
-  ctx.fillStyle = '#d77700';
-  ctx.textAlign = 'center';
-  ctx.font = 'italic 16px Poppins, sans-serif';
-  ctx.fillText('Please contact if found!', canvas.width / 2, canvas.height - 40);
-
-  canvas.toBlob(blob => {
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `MissingCat_${catName.replace(/\s+/g, '_')}.png`;
-    link.click();
-    URL.revokeObjectURL(url);
-    posterMessage.style.display = 'block';
-    setTimeout(() => posterMessage.style.display = 'none', 4000);
-  });
-});
-
-function wrapText(context, text, x, y, maxWidth, lineHeight) {
-  const words = text.split(' ');
-  let line = '';
-  for (let n = 0; n < words.length; n++) {
-    const testLine = line + words[n] + ' ';
-    const metrics = context.measureText(testLine);
-    const testWidth = metrics.width;
-    if (testWidth > maxWidth && n > 0) {
-      context.fillText(line, x, y);
-      line = words[n] + ' ';
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
-  }
-  context.fillText(line, x, y);
-}
-
-</script>
 </body>
 </html>
